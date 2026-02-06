@@ -3,6 +3,11 @@
 ## Descripción
 Primera entrega del proyecto e-commerce de vinos con React para Coderhouse.
 
+Inicia con:
+```
+npm run dev
+```
+
 ## Componentes Creados
 
 ### NavBar
