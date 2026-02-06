@@ -1,25 +1,28 @@
-# Entrega 1 - E-commerce de Vinos
+# Entrega 2 - E-commerce de Vinos
 
 ## Descripción
-Primera entrega del proyecto e-commerce de vinos con React para Coderhouse.
+Segunda entrega del proyecto e-commerce de vinos con React para Coderhouse.
 
-Inicia con:
+Comandos:
 ```
-npm run dev
+npm run dev      # Inicia servidor de desarrollo
+npm run build    # Compila para producción
+npm run preview  # Vista previa de build de producción
 ```
 
 ## Componentes Creados
 
 ### NavBar
-- Barra de navegación con enlaces
+- Barra de navegación de categorias "Todos", "Tintos", "Blancos", "Rosados" o "Espumantes"
 - Logo de la tienda
 - Widget del carrito de compras
 
-### CartWidget
-- Widget del carrito que se renderiza dentro del NavBar
-- Muestra el ícono del carrito
-
 ### ItemListContainer
-- Contenedor que mostrará el catálogo de productos
-- Utiliza props para personalización
-- Muestra mensaje de bienvenida
+- Contenedor que maneja el estado y carga de productos (todos o por categoría)
+
+### ItemDetail 
+- Vista detallada con contador y botón "Agregar al carrito"
+
+### 404 
+- Vista de una ruta no encontrada
+
