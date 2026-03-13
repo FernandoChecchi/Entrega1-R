@@ -1,3 +1,7 @@
+import "dotenv/config";
+import db from "./db.js";
+import { collection, addDoc } from "firebase/firestore";
+
 const products = [
   { id: 1, name: "Antonieta Esoumante Brut Nature", description: "Espumante brut nature, burbujas finas y sabor seco.", stock: 10, image: "/image/antonieta-esoumante-brut-nature.png", price: 1200, category: "espumante" },
   { id: 2, name: "Benjamin Chardonnay", description: "Chardonnay fresco, ideal para pescados y mariscos.", stock: 15, image: "/image/benjamin-chardonnay.png", price: 900, category: "blanco" },
@@ -34,28 +38,19 @@ const products = [
   { id: 33, name: "Trumpeter Reserve Malbec", description: "Malbec Trumpeter Reserve, elegante y complejo.", stock: 8, image: "/image/trumpeter-reserve-malbec.png", price: 1500, category: "tinto" }
 ];
 
-export const getProducts = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(products);
-    }, 2000);
-  });
+const seedProducts = async () => {
+  try {
+    const productsRef = collection(db, "products");
+    for (const product of products) {
+    const { id, ...productData } = product;
+
+    await addDoc(productsRef, productData);
+    console.log(`Producto agregado a la DB`);
+  }
+  console.log("Productos agregados a la DB");
+  } catch (error) {
+    console.error("Error al agregar productos a la DB: ", error);
+  }
 };
 
-export const getProductsByCategory = (categoryId) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const filteredProducts = products.filter(product => product.category === categoryId);
-      resolve(filteredProducts);
-    }, 2000);
-  });
-};
-
-export const getProductById = (productId) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const product = products.find(product => product.id === parseInt(productId));
-      resolve(product);
-    }, 2000);
-  });
-};
+seedProducts();

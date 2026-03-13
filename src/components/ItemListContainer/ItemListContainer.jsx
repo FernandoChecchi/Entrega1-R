@@ -1,8 +1,30 @@
 import { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { getProducts, getProductsByCategory } from '../../data/data';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import db from '../../db/db';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css';
+
+const getProducts = async () => {
+  try {
+    const snapshot = await getDocs(collection(db, 'products'));
+    return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  } catch (error) {
+    console.error('Error al obtener productos:', error);
+    throw error;
+  }
+};
+
+const getProductsByCategory = async (categoryId) => {
+  try {
+    const q = query(collection(db, 'products'), where('category', '==', categoryId));
+    const snapshot = await getDocs(q);
+    return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  } catch (error) {
+    console.error('Error al obtener productos por categoría:', error);
+    throw error;
+  }
+};
 
 const ItemListContainer = ({ mensaje }) => {
   const [products, setProducts] = useState([]);

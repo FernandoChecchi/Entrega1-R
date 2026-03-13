@@ -1,8 +1,23 @@
 import { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { getProductById } from '../../data/data';
+import { doc, getDoc } from 'firebase/firestore';
+import db from '../../db/db';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import './ItemDetailContainer.css';
+
+const getProductById = async (itemId) => {
+  try {
+    const docRef = doc(db, 'products', itemId);
+    const snapshot = await getDoc(docRef);
+    if (snapshot.exists()) {
+      return { id: snapshot.id, ...snapshot.data() };
+    }
+    return null;
+  } catch (error) {
+    console.error('Error al obtener el producto:', error);
+    throw error;
+  }
+};
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);

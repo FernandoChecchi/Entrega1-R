@@ -10,6 +10,14 @@ npm run build    # Compila para producción
 npm run preview  # Vista previa de build de producción
 ```
 
+## Base de datos (Firebase)
+
+Para cargar los productos en Firestore por primera vez, ejecutar:
+```
+node src/db/seed.js
+```
+> ⚠️ Ejecutar una sola vez. Correrlo múltiples veces duplicará los productos en la base de datos.
+
 ## Componentes Creados
 
 ### NavBar
