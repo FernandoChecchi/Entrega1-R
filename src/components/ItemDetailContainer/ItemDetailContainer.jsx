@@ -45,7 +45,6 @@ const ItemDetailContainer = () => {
       });
   }, [itemId]);
 
-  // Redirigir a 404 si el producto no existe
   if (productNotFound && !loading) {
     return <Navigate to="/404" replace />;
   }

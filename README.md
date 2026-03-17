@@ -1,7 +1,7 @@
 # Entrega 2 - E-commerce de Vinos
 
 ## Descripción
-Segunda entrega del proyecto e-commerce de vinos con React para Coderhouse.
+Entrega Final del proyecto e-commerce de vinos con React para Coderhouse.
 
 Comandos:
 ```
@@ -30,6 +30,22 @@ node src/db/seed.js
 
 ### ItemDetail 
 - Vista detallada con contador y botón "Agregar al carrito"
+
+### Cart
+- Vista completa del carrito con la lista de productos agregados, sus cantidades y precios.
+- Permite modificar cantidades, eliminar ítems o vaciar el carrito, y muestra el total del pedido con un botón para avanzar al checkout.
+
+### CartWidget
+- Ícono de carrito en la NavBar que muestra un badge con la cantidad total de productos en el carrito.
+- Al hacer clic redirige a la ruta `/cart`.
+
+### Checkout
+- Formulario de compra que solicita nombre, email y teléfono del comprador con validaciones en tiempo real.
+- Al confirmar, guarda la orden en Firestore, actualiza el stock de los productos y muestra el ID de la orden generada.
+
+### Base de datos (db.js)
+- Inicializa la conexión con Firebase usando las variables de entorno definidas en `.env`.
+- Exporta la instancia de Firestore (`db`) utilizada en toda la app para leer y escribir productos y órdenes.
 
 ### 404 
 - Vista de una ruta no encontrada

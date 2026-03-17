@@ -51,6 +51,17 @@
   margin: 0;
 }
 
+.item-stock-empty {
+  color: #e53935;
+  font-weight: 600;
+}
+
+.item-stock-cart {
+  color: #888;
+  font-style: italic;
+  font-size: 0.82rem;
+}
+
 .item-detail-link {
   display: inline-block;
   padding: 10px 20px;

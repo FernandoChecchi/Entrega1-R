@@ -1,13 +1,18 @@
-import { LuShoppingCart } from "react-icons/lu";
+import { Link } from 'react-router-dom';
+import { LuShoppingCart } from 'react-icons/lu';
+import { useCart } from '../../context/CartContext';
+import './CartWidget.css';
 
 const CartWidget = () => {
+  const { getTotalItems } = useCart();
+  const total = getTotalItems();
+
   return (
-    <div className="cart-widget">
-      <LuShoppingCart size={40} />
+    <Link to="/cart" className="cart-widget">
+      <LuShoppingCart size={28} />
+      {total > 0 && <span className="cart-count">{total}</span>}
+    </Link>
+  );
+};
 
-      <span className="cart-count">3</span>
-    </div>
-  )
-}
-
-export default CartWidget
+export default CartWidget;

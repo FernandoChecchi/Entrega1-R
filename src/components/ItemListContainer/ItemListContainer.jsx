@@ -57,7 +57,6 @@ const ItemListContainer = ({ mensaje }) => {
       });
   }, [categoryId]);
 
-  // Redirigir a 404 si la categoría no es válida
   if (invalidCategory) {
     return <Navigate to="/404" replace />;
   }

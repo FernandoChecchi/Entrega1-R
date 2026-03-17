@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import CartWidget from "../CartWidget/CartWidget"
+import CartWidget from '../CartWidget/CartWidget';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -14,7 +14,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/"
-            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
             end
           >
             Todos
@@ -23,7 +23,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/category/tinto"
-            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
             Tintos
           </NavLink>
@@ -31,7 +31,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/category/blanco"
-            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
             Blancos
           </NavLink>
@@ -39,7 +39,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/category/rosado"
-            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
             Rosados
           </NavLink>
@@ -47,16 +47,24 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/category/espumante"
-            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           >
             Espumantes
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/cart"
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            Carrito
           </NavLink>
         </li>
       </ul>
 
       <CartWidget />
     </nav>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
